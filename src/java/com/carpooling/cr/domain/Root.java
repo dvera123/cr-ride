@@ -56,7 +56,7 @@ public class Root implements Serializable {
     private int driver;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "max-passengers")
+    @Column(name = "max_passengers")
     private int maxPassengers;
 
     public Root() {

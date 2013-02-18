@@ -18,7 +18,7 @@
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="index.htm">indexController</prop>
+                <prop key="index.ride">indexController</prop>
             </props>
         </property>
     </bean>
@@ -34,5 +34,16 @@
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
+    <!--
+    The root controller.
+    -->        
+          
+    <bean id="myRootDAO" class="com.carpooling.cr.model.implement.RootDAOImpl">
+       
+    </bean>
+    
+    <bean name="/root/*.ride" class="com.carpooling.cr.controller.RootController" >
+        <property name="rootDAO" ref="myRootDAO" />
+    </bean>
     
 </beans>
