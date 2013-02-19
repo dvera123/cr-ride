@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Root.findById", query = "SELECT r FROM Root r WHERE r.id = :id"),
     @NamedQuery(name = "Root.findByStartPoint", query = "SELECT r FROM Root r WHERE r.startPoint = :startPoint"),
     @NamedQuery(name = "Root.findByEndPoint", query = "SELECT r FROM Root r WHERE r.endPoint = :endPoint"),
-    @NamedQuery(name = "Root.findByDriver", query = "SELECT r FROM Root r WHERE r.driver = :driver"),
+    @NamedQuery(name = "Root.findByIdDriver", query = "SELECT r FROM Root r WHERE r.idDriver = :idDriver"),
     @NamedQuery(name = "Root.findByMaxPassengers", query = "SELECT r FROM Root r WHERE r.maxPassengers = :maxPassengers")})
 public class Root implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -52,8 +52,8 @@ public class Root implements Serializable {
     private String endPoint;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "driver")
-    private int driver;
+    @Column(name = "id_driver")
+    private int idDriver;
     @Basic(optional = false)
     @NotNull
     @Column(name = "max_passengers")
@@ -66,11 +66,11 @@ public class Root implements Serializable {
         this.id = id;
     }
 
-    public Root(Integer id, String startPoint, String endPoint, int driver, int maxPassengers) {
+    public Root(Integer id, String startPoint, String endPoint, int idDriver, int maxPassengers) {
         this.id = id;
         this.startPoint = startPoint;
         this.endPoint = endPoint;
-        this.driver = driver;
+        this.idDriver = idDriver;
         this.maxPassengers = maxPassengers;
     }
 
@@ -98,12 +98,12 @@ public class Root implements Serializable {
         this.endPoint = endPoint;
     }
 
-    public int getDriver() {
-        return driver;
+    public int getIdDriver() {
+        return idDriver;
     }
 
-    public void setDriver(int driver) {
-        this.driver = driver;
+    public void setIdDriver(int idDriver) {
+        this.idDriver = idDriver;
     }
 
     public int getMaxPassengers() {
